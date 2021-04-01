@@ -16,6 +16,7 @@ namespace Messerli.ChangeCase.Test
         [InlineData("PascalCase", "PascalCase")]
         [InlineData("kebab-case", "KebabCase")]
         [InlineData("HTTPConnection", "HttpConnection")]
+        [InlineData("htmlDocument", "HtmlDocument")]
         [InlineData("rmiSomething", "RmiSomething")]
         [InlineData("RmiSomething", "RmiSomething")]
         [InlineData("RMISomething", "RmiSomething")]
