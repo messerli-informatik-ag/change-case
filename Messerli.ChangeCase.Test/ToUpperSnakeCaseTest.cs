@@ -2,7 +2,7 @@
 
 namespace Messerli.ChangeCase.Test
 {
-    public class ToConstantCaseTest
+    public class ToUpperSnakeCaseTest
     {
         [Theory]
         [InlineData("", "")]
@@ -22,7 +22,7 @@ namespace Messerli.ChangeCase.Test
         [InlineData("RMISomething", "RMI_SOMETHING")]
         public void NamesAnyCasingConvertCorrectlyToConstantCase(string sourceName, string expected)
         {
-            Assert.Equal(expected, sourceName.ToConstantCase());
+            Assert.Equal(expected, sourceName.ToUpperSnakeCase());
         }
     }
 }

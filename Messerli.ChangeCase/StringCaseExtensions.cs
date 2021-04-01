@@ -13,7 +13,7 @@ namespace Messerli.ChangeCase
                 .ToPascalCase()
                 .FirstCharacterToLowerCase();
 
-        public static string ToConstantCase(this string identifier)
+        public static string ToUpperSnakeCase(this string identifier)
             => identifier
                 .FormatIdentifier(s => s.ToUpper(), "_");
 
