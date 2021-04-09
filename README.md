@@ -15,12 +15,12 @@ Transform a string between [different casing styles](https://en.wikipedia.org/wi
 ## Usage
 
 ```csharp
-  using Messerli.ChangeCase
+using Messerli.ChangeCase
 ```
 
 Sample usage:
 ```csharp
-  var camelCase = "snake_case".CamelCase() // => snakeCase
+var camelCase = "snake_case".CamelCase() // => snakeCase
 ```
 
 ### Use as Method Group
@@ -37,12 +37,12 @@ var namesInPascalCase = names
 [Pascal Case](https://en.wikipedia.org/wiki/Camel_case)
 
 ```csharp
-  "PascalCase".PascalCase(); // => PascalCase
-  "camelCase".PascalCase(); // => CamelCase
-  "snake_case".PascalCase(); // => SnakeCase
-  "UPPER_SNAKE_CASE".PascalCase(); // => UpperSnakeCase
-  "HTTPConnection".PascalCase(); // => HttpConnection
-  "HTML".PascalCase(); // => Html
+"PascalCase".PascalCase(); // => PascalCase
+"camelCase".PascalCase(); // => CamelCase
+"snake_case".PascalCase(); // => SnakeCase
+"UPPER_SNAKE_CASE".PascalCase(); // => UpperSnakeCase
+"HTTPConnection".PascalCase(); // => HttpConnection
+"HTML".PascalCase(); // => Html
 ```
 
 ### CamelCase()
@@ -50,12 +50,12 @@ var namesInPascalCase = names
 [Camel case](https://en.wikipedia.org/wiki/Camel_case)
 
 ```csharp
-  "PascalCase".CamelCase(); // => pascalCase
-  "camelCase".CamelCase(); // => camelCase
-  "snake_case".CamelCase(); // => snakeCase
-  "UPPER_SNAKE_CASE".CamelCase(); // => upperSnakeCase
-  "HTTPConnection".CamelCase(); // => httpConnection
-  "HTML".CamelCase(); // => html
+"PascalCase".CamelCase(); // => pascalCase
+"camelCase".CamelCase(); // => camelCase
+"snake_case".CamelCase(); // => snakeCase
+"UPPER_SNAKE_CASE".CamelCase(); // => upperSnakeCase
+"HTTPConnection".CamelCase(); // => httpConnection
+"HTML".CamelCase(); // => html
 ```
 
 ### SnakeCase()
@@ -63,12 +63,12 @@ var namesInPascalCase = names
 [Snake case](https://en.wikipedia.org/wiki/Snake_case)
 
 ```csharp
-  "PascalCase".SnakeCase(); // => pascal_case
-  "camelCase".SnakeCase(); // => camel_case
-  "snake_case".SnakeCase(); // => snake_case
-  "UPPER_SNAKE_CASE".SnakeCase(); // => upper_snake_case
-  "HTTPConnection".SnakeCase(); // => http_connection
-  "HTML".SnakeCase(); // => html
+"PascalCase".SnakeCase(); // => pascal_case
+"camelCase".SnakeCase(); // => camel_case
+"snake_case".SnakeCase(); // => snake_case
+"UPPER_SNAKE_CASE".SnakeCase(); // => upper_snake_case
+"HTTPConnection".SnakeCase(); // => http_connection
+"HTML".SnakeCase(); // => html
 ```
 
 ### UpperSnakeCase()
@@ -76,12 +76,12 @@ var namesInPascalCase = names
 [Upper Snake case](https://en.wikipedia.org/wiki/Snake_case)
 
 ```csharp
-  "PascalCase".UpperSnakeCase(); // => PASCAL_CASE
-  "camelCase".UpperSnakeCase(); // => CAMEL_CASE
-  "snake_case".UpperSnakeCase(); // => SNAKE_CASE
-  "UPPER_SNAKE_CASE".UpperSnakeCase(); // => UPPER_SNAKE_CASE
-  "HTTPConnection".UpperSnakeCase(); // => HTTP_CONNECTION
-  "HTML".UpperSnakeCase(); // => HTML
+"PascalCase".UpperSnakeCase(); // => PASCAL_CASE
+"camelCase".UpperSnakeCase(); // => CAMEL_CASE
+"snake_case".UpperSnakeCase(); // => SNAKE_CASE
+"UPPER_SNAKE_CASE".UpperSnakeCase(); // => UPPER_SNAKE_CASE
+"HTTPConnection".UpperSnakeCase(); // => HTTP_CONNECTION
+"HTML".UpperSnakeCase(); // => HTML
 ```
 
 ### KebabCase()
@@ -89,10 +89,10 @@ var namesInPascalCase = names
 [Kebab case](https://en.wikipedia.org/wiki/Kebab_case)
 
 ```csharp
-  "PascalCase".UpperSnakeCase(); // => pascal-case
-  "camelCase".UpperSnakeCase(); // => camel-case
-  "snake_case".UpperSnakeCase(); // => snake-case
-  "UPPER_SNAKE_CASE".UpperSnakeCase(); // => upper-snake-case
-  "HTTPConnection".UpperSnakeCase(); // => http-connection
-  "HTML".UpperSnakeCase(); // => html
+"PascalCase".UpperSnakeCase(); // => pascal-case
+"camelCase".UpperSnakeCase(); // => camel-case
+"snake_case".UpperSnakeCase(); // => snake-case
+"UPPER_SNAKE_CASE".UpperSnakeCase(); // => upper-snake-case
+"HTTPConnection".UpperSnakeCase(); // => http-connection
+"HTML".UpperSnakeCase(); // => html
 ```
