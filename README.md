@@ -3,8 +3,8 @@
 Transform a string between [different casing styles](https://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Multiple-word_identifiers) like: camelCase, PascalCase, CONSTANT_CASE and others handling old style abbrevations correctly 
 
 [![Build](https://github.com/messerli-informatik-ag/change-case/workflows/Build/badge.svg)](https://github.com/messerli-informatik-ag/change-case/actions?query=workflow%3ABuild)
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/master/LICENSE-MIT)
-[![Licence: Apache](https://img.shields.io/badge/licence-Apache-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/master/LICENSE-Apache)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/main/LICENSE-MIT)
+[![Licence: Apache](https://img.shields.io/badge/licence-Apache-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/main/LICENSE-Apache)
 
 ## Packages
 
@@ -15,12 +15,12 @@ Transform a string between [different casing styles](https://en.wikipedia.org/wi
 ## Usage
 
 ```csharp
-  using Messerli.ChangeCase
+using Messerli.ChangeCase
 ```
 
 Sample usage:
 ```csharp
-  var camelCase = "snake_case".CamelCase() // => snakeCase
+var camelCase = "snake_case".ToCamelCase() // => snakeCase
 ```
 
 ### Use as Method Group
@@ -29,70 +29,70 @@ Sample usage:
 IEnumerable<string> names = new[] { "PascalCase", "camelCase", "snake_case", "UPPER_SNAKE_CASE" };
 
 var namesInPascalCase = names
-    .Select(StringCaseExtensions.PascalCase);
+    .Select(StringCaseExtensions.ToPascalCase);
 ```
 
-### PascalCase()
+### ToPascalCase()
 
 [Pascal Case](https://en.wikipedia.org/wiki/Camel_case)
 
 ```csharp
-  "PascalCase".PascalCase(); // => PascalCase
-  "camelCase".PascalCase(); // => CamelCase
-  "snake_case".PascalCase(); // => SnakeCase
-  "UPPER_SNAKE_CASE".PascalCase(); // => UpperSnakeCase
-  "HTTPConnection".PascalCase(); // => HttpConnection
-  "HTML".PascalCase(); // => Html
+"PascalCase".ToPascalCase(); // => PascalCase
+"camelCase".ToPascalCase(); // => CamelCase
+"snake_case".ToPascalCase(); // => SnakeCase
+"UPPER_SNAKE_CASE".ToPascalCase(); // => UpperSnakeCase
+"HTTPConnection".ToPascalCase(); // => HttpConnection
+"HTML".ToPascalCase(); // => Html
 ```
 
-### CamelCase()
+### ToCamelCase()
 
 [Camel case](https://en.wikipedia.org/wiki/Camel_case)
 
 ```csharp
-  "PascalCase".CamelCase(); // => pascalCase
-  "camelCase".CamelCase(); // => camelCase
-  "snake_case".CamelCase(); // => snakeCase
-  "UPPER_SNAKE_CASE".CamelCase(); // => upperSnakeCase
-  "HTTPConnection".CamelCase(); // => httpConnection
-  "HTML".CamelCase(); // => html
+"PascalCase".ToCamelCase(); // => pascalCase
+"camelCase".ToCamelCase(); // => camelCase
+"snake_case".ToCamelCase(); // => snakeCase
+"UPPER_SNAKE_CASE".ToCamelCase(); // => upperSnakeCase
+"HTTPConnection".ToCamelCase(); // => httpConnection
+"HTML".ToCamelCase(); // => html
 ```
 
-### SnakeCase()
+### ToSnakeCase()
 
 [Snake case](https://en.wikipedia.org/wiki/Snake_case)
 
 ```csharp
-  "PascalCase".SnakeCase(); // => pascal_case
-  "camelCase".SnakeCase(); // => camel_case
-  "snake_case".SnakeCase(); // => snake_case
-  "UPPER_SNAKE_CASE".SnakeCase(); // => upper_snake_case
-  "HTTPConnection".SnakeCase(); // => http_connection
-  "HTML".SnakeCase(); // => html
+"PascalCase".ToSnakeCase(); // => pascal_case
+"camelCase".ToSnakeCase(); // => camel_case
+"snake_case".ToSnakeCase(); // => snake_case
+"UPPER_SNAKE_CASE".ToSnakeCase(); // => upper_snake_case
+"HTTPConnection".ToSnakeCase(); // => http_connection
+"HTML".ToSnakeCase(); // => html
 ```
 
-### UpperSnakeCase()
+### ToUpperSnakeCase()
 
 [Upper Snake case](https://en.wikipedia.org/wiki/Snake_case)
 
 ```csharp
-  "PascalCase".UpperSnakeCase(); // => PASCAL_CASE
-  "camelCase".UpperSnakeCase(); // => CAMEL_CASE
-  "snake_case".UpperSnakeCase(); // => SNAKE_CASE
-  "UPPER_SNAKE_CASE".UpperSnakeCase(); // => UPPER_SNAKE_CASE
-  "HTTPConnection".UpperSnakeCase(); // => HTTP_CONNECTION
-  "HTML".UpperSnakeCase(); // => HTML
+"PascalCase".ToUpperSnakeCase(); // => PASCAL_CASE
+"camelCase".ToUpperSnakeCase(); // => CAMEL_CASE
+"snake_case".ToUpperSnakeCase(); // => SNAKE_CASE
+"UPPER_SNAKE_CASE".ToUpperSnakeCase(); // => UPPER_SNAKE_CASE
+"HTTPConnection".ToUpperSnakeCase(); // => HTTP_CONNECTION
+"HTML".ToUpperSnakeCase(); // => HTML
 ```
 
-### KebabCase()
+### ToKebabCase()
 
 [Kebab case](https://en.wikipedia.org/wiki/Kebab_case)
 
 ```csharp
-  "PascalCase".UpperSnakeCase(); // => pascal-case
-  "camelCase".UpperSnakeCase(); // => camel-case
-  "snake_case".UpperSnakeCase(); // => snake-case
-  "UPPER_SNAKE_CASE".UpperSnakeCase(); // => upper-snake-case
-  "HTTPConnection".UpperSnakeCase(); // => http-connection
-  "HTML".UpperSnakeCase(); // => html
+"PascalCase".ToKebabCase(); // => pascal-case
+"camelCase".ToKebabCase(); // => camel-case
+"snake_case".ToKebabCase(); // => snake-case
+"UPPER_SNAKE_CASE".ToKebabCase(); // => upper-snake-case
+"HTTPConnection".ToKebabCase(); // => http-connection
+"HTML".ToKebabCase(); // => html
 ```
