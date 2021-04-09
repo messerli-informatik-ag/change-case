@@ -3,8 +3,8 @@
 Transform a string between [different casing styles](https://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Multiple-word_identifiers) like: camelCase, PascalCase, CONSTANT_CASE and others handling old style abbrevations correctly 
 
 [![Build](https://github.com/messerli-informatik-ag/change-case/workflows/Build/badge.svg)](https://github.com/messerli-informatik-ag/change-case/actions?query=workflow%3ABuild)
-[![Licence: MIT](https://img.shields.io/badge/licence-MIT-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/master/LICENSE-MIT)
-[![Licence: Apache](https://img.shields.io/badge/licence-Apache-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/master/LICENSE-Apache)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/main/LICENSE-MIT)
+[![Licence: Apache](https://img.shields.io/badge/licence-Apache-green)](https://raw.githubusercontent.com/messerli-informatik-ag/change-case/main/LICENSE-Apache)
 
 ## Packages
 
