@@ -13,7 +13,7 @@ namespace Messerli.ChangeCase
         private const int SingleCharacterSeparatorLength = 1;
         private const int TailStart = 1;
         private const int CharacterNotFound = -1;
-        private static readonly char[] NameSeparators = { '-', '_' };
+        private static readonly char[] NameSeparators = { '-', '_', '.' };
 
         private delegate Option<SplitResult> ExtractElement(string identifier, int startIndex);
 
