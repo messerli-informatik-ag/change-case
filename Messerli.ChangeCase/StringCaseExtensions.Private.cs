@@ -39,11 +39,14 @@ namespace Messerli.ChangeCase
                 : identifier
                     .WithIndex()
                     .Skip(startIndex + 1)
-                    .FirstOrNone(c => char.IsUpper(c.Value))
+                    .FirstOrNone(IsSeparatorCase)
                     .AndThen(c => c.Index)
                     .Match(
                         none: ExtractLastElement(identifier, startIndex),
                         some: ExtractNextElement(identifier, startIndex, EmptySeparatorLength));
+
+        private static bool IsSeparatorCase(ValueWithIndex<char> c)
+            => char.IsUpper(c.Value) || char.IsDigit(c.Value);
 
         private static Option<SplitResult> ExtractAbbreviation(string identifier, int startIndex)
             => identifier

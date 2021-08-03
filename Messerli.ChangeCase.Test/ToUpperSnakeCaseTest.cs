@@ -20,6 +20,10 @@ namespace Messerli.ChangeCase.Test
         [InlineData("rmiSomething", "RMI_SOMETHING")]
         [InlineData("RmiSomething", "RMI_SOMETHING")]
         [InlineData("RMISomething", "RMI_SOMETHING")]
+        [InlineData("end_2_end", "END_2_END")]
+        [InlineData("BUSINESS_2_BUSINESS", "BUSINESS_2_BUSINESS")]
+        [InlineData("End2End", "END_2_END")]
+        [InlineData("business2Business", "BUSINESS_2_BUSINESS")]
         public void NamesAnyCasingConvertCorrectlyToConstantCase(string sourceName, string expected)
         {
             Assert.Equal(expected, sourceName.ToUpperSnakeCase());
