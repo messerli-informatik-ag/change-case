@@ -11,13 +11,13 @@ namespace Messerli.ChangeCase
             public readonly int NextStartIndex;
 
             public SplitResult(int nextStartIndex, Option<string> result = default)
-            {
-                Result = result
+                => (Result, NextStartIndex) = (FlattenResult(result), nextStartIndex);
+
+            private static string FlattenResult(Option<string> result)
+                => result
                     .Match(
                         none: string.Empty,
-                        some: r => r.ToLower());
-                NextStartIndex = nextStartIndex;
-            }
+                        some: ToLower);
         }
     }
 }

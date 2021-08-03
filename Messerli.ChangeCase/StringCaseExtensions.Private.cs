@@ -36,14 +36,17 @@ namespace Messerli.ChangeCase
         private static Option<SplitResult> ExtractByCasing(string identifier, int startIndex)
             => NextIsAbbreviation(identifier, startIndex)
                 ? ExtractAbbreviation(identifier, startIndex)
-                : identifier
-                    .WithIndex()
-                    .Skip(startIndex + 1)
-                    .FirstOrNone(IsSeparatorCase)
-                    .AndThen(c => c.Index)
-                    .Match(
-                        none: ExtractLastElement(identifier, startIndex),
-                        some: ExtractNextElement(identifier, startIndex, EmptySeparatorLength));
+                : ExtractNextWord(identifier, startIndex);
+
+        private static SplitResult ExtractNextWord(string identifier, int startIndex)
+            => identifier
+                .WithIndex()
+                .Skip(startIndex + 1)
+                .FirstOrNone(IsSeparatorCase)
+                .AndThen(GetIndex)
+                .Match(
+                    none: ExtractLastElement(identifier, startIndex),
+                    some: ExtractNextElement(identifier, startIndex, EmptySeparatorLength));
 
         private static bool IsSeparatorCase(ValueWithIndex<char> c)
             => char.IsUpper(c.Value) || char.IsDigit(c.Value);
@@ -53,7 +56,7 @@ namespace Messerli.ChangeCase
                 .WithIndex()
                 .Skip(startIndex)
                 .FirstOrNone(c => char.IsLower(c.Value))
-                .AndThen(c => c.Index)
+                .AndThen(GetIndex)
                 .Match(
                     none: ExtractLastElement(identifier, startIndex),
                     some: index => ExtractNextElement(identifier, startIndex, EmptySeparatorLength)(index - 1));
@@ -95,5 +98,14 @@ namespace Messerli.ChangeCase
             => Sequence
                 .Generate(new SplitResult(0), previous => extractNext(text, previous.NextStartIndex))
                 .Select(r => r.Result);
+
+        private static int GetIndex(ValueWithIndex<char> value)
+            => value.Index;
+
+        private static string ToLower(string value)
+            => value.ToLower();
+
+        private static string ToUpper(string value)
+            => value.ToUpper();
     }
 }
