@@ -105,7 +105,7 @@ namespace Messerli.ChangeCase
 
         private static IEnumerable<string> SplitBy(this string text, ExtractElement extractNext)
             => Sequence
-                .Generate(new SplitResult(0), previous => extractNext(text, previous.NextStartIndex))
+                .Generate(new SplitResult(0, string.Empty), previous => extractNext(text, previous.NextStartIndex))
                 .Select(r => r.Result);
 
         private static int GetIndex(ValueWithIndex<char> value)
