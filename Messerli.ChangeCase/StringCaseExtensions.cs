@@ -15,15 +15,15 @@ namespace Messerli.ChangeCase
 
         public static string ToUpperSnakeCase(this string identifier)
             => identifier
-                .FormatIdentifier(s => s.ToUpper(), "_");
+                .FormatIdentifier(ToUpper, "_");
 
         public static string ToSnakeCase(this string identifier)
             => identifier
-                .FormatIdentifier(s => s.ToLower(), "_");
+                .FormatIdentifier(ToLower, "_");
 
         public static string ToKebabCase(this string identifier)
             => identifier
-                .FormatIdentifier(s => s.ToLower(), "-");
+                .FormatIdentifier(ToLower, "-");
 
         public static string FirstCharacterToUpperCase(this string name)
             => name.FirstOrNone()

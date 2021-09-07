@@ -12,6 +12,10 @@ namespace Messerli.ChangeCase.Test
         [InlineData("this_is_a_long_snake_case_name", "This_is_a_long_snake_case_name")]
         [InlineData("HTML", "HTML")]
         [InlineData("htmlDocument", "HtmlDocument")]
+        [InlineData("end_2_end", "End_2_end")]
+        [InlineData("BUSINESS_2_BUSINESS", "BUSINESS_2_BUSINESS")]
+        [InlineData("End2End", "End2End")]
+        [InlineData("business2Business", "Business2Business")]
         public void FirstCharacterOnlyGetsUpperCase(string sourceName, string expected)
         {
             Assert.Equal(expected, sourceName.FirstCharacterToUpperCase());

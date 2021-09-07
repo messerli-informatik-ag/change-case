@@ -10,14 +10,8 @@ namespace Messerli.ChangeCase
 
             public readonly int NextStartIndex;
 
-            public SplitResult(int nextStartIndex, Option<string> result = default)
-            {
-                Result = result
-                    .Match(
-                        none: string.Empty,
-                        some: r => r.ToLower());
-                NextStartIndex = nextStartIndex;
-            }
+            public SplitResult(int nextStartIndex, string result)
+                => (Result, NextStartIndex) = (result.ToLower(), nextStartIndex);
         }
     }
 }

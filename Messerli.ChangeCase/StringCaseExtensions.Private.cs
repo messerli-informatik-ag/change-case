@@ -34,26 +34,41 @@ namespace Messerli.ChangeCase
                 : ExtractByCasing(identifier, startIndex);
 
         private static Option<SplitResult> ExtractByCasing(string identifier, int startIndex)
-            => NextIsAbbreviation(identifier, startIndex)
-                ? ExtractAbbreviation(identifier, startIndex)
-                : identifier
-                    .WithIndex()
-                    .Skip(startIndex + 1)
-                    .FirstOrNone(c => char.IsUpper(c.Value))
-                    .AndThen(c => c.Index)
-                    .Match(
-                        none: ExtractLastElement(identifier, startIndex),
-                        some: ExtractNextElement(identifier, startIndex, EmptySeparatorLength));
+            => identifier switch
+            {
+                _ when NextIsAbbreviation(identifier, startIndex) => ExtractUntil(identifier, startIndex, c => char.IsLower(c.Value)),
+                _ when NextIsNumber(identifier, startIndex) => ExtractUntil(identifier, startIndex, c => !char.IsDigit(c.Value)),
+                _ => ExtractNextWord(identifier, startIndex),
+            };
 
-        private static Option<SplitResult> ExtractAbbreviation(string identifier, int startIndex)
+        private static Option<SplitResult> ExtractUntil(string identifier, int startIndex, Func<ValueWithIndex<char>, bool> isEndPredicate)
             => identifier
                 .WithIndex()
                 .Skip(startIndex)
-                .FirstOrNone(c => char.IsLower(c.Value))
-                .AndThen(c => c.Index)
+                .FirstOrNone(isEndPredicate)
+                .AndThen(GetIndex)
                 .Match(
                     none: ExtractLastElement(identifier, startIndex),
                     some: index => ExtractNextElement(identifier, startIndex, EmptySeparatorLength)(index - 1));
+
+        private static bool NextIsNumber(string identifier, int startIndex)
+            => identifier
+                .Skip(startIndex)
+                .TakeWhile(char.IsDigit)
+                .Count() > 1;
+
+        private static SplitResult ExtractNextWord(string identifier, int startIndex)
+            => identifier
+                .WithIndex()
+                .Skip(startIndex + 1)
+                .FirstOrNone(IsSeparatorCase)
+                .AndThen(GetIndex)
+                .Match(
+                    none: ExtractLastElement(identifier, startIndex),
+                    some: ExtractNextElement(identifier, startIndex, EmptySeparatorLength));
+
+        private static bool IsSeparatorCase(ValueWithIndex<char> c)
+            => char.IsUpper(c.Value) || char.IsDigit(c.Value);
 
         private static bool NextIsAbbreviation(string identifier, int startIndex)
             => identifier
@@ -90,7 +105,16 @@ namespace Messerli.ChangeCase
 
         private static IEnumerable<string> SplitBy(this string text, ExtractElement extractNext)
             => Sequence
-                .Generate(new SplitResult(0), previous => extractNext(text, previous.NextStartIndex))
+                .Generate(new SplitResult(0, string.Empty), previous => extractNext(text, previous.NextStartIndex))
                 .Select(r => r.Result);
+
+        private static int GetIndex(ValueWithIndex<char> value)
+            => value.Index;
+
+        private static string ToLower(string value)
+            => value.ToLower();
+
+        private static string ToUpper(string value)
+            => value.ToUpper();
     }
 }

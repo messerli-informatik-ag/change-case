@@ -20,6 +20,11 @@ namespace Messerli.ChangeCase.Test
         [InlineData("rmiSomething", "rmiSomething")]
         [InlineData("RmiSomething", "rmiSomething")]
         [InlineData("RMISomething", "rmiSomething")]
+        [InlineData("end_2_end", "end2End")]
+        [InlineData("BUSINESS_2_BUSINESS", "business2Business")]
+        [InlineData("End2End", "end2End")]
+        [InlineData("business2Business", "business2Business")]
+        [InlineData("e02", "e02")]
         public void NamesAnyCasingConvertCorrectlyToCamelCase(string sourceName, string expected)
         {
             Assert.Equal(expected, sourceName.ToCamelCase());
