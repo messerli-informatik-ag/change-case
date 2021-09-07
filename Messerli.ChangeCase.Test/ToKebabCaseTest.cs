@@ -24,6 +24,7 @@ namespace Messerli.ChangeCase.Test
         [InlineData("BUSINESS_2_BUSINESS", "business-2-business")]
         [InlineData("End2End", "end-2-end")]
         [InlineData("business2Business", "business-2-business")]
+        [InlineData("e02", "e-02")]
         public void NamesAnyCasingConvertCorrectlyToKebabCase(string sourceName, string expected)
         {
             Assert.Equal(expected, sourceName.ToKebabCase());

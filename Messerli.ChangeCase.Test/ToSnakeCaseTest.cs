@@ -24,6 +24,7 @@ namespace Messerli.ChangeCase.Test
         [InlineData("BUSINESS_2_BUSINESS", "business_2_business")]
         [InlineData("End2End", "end_2_end")]
         [InlineData("business2Business", "business_2_business")]
+        [InlineData("e02", "e_02")]
         public void NamesAnyCasingConvertCorrectlyToSnakeCase(string sourceName, string expected)
         {
             Assert.Equal(expected, sourceName.ToSnakeCase());

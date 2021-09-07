@@ -24,6 +24,7 @@ namespace Messerli.ChangeCase.Test
         [InlineData("BUSINESS_2_BUSINESS", "Business2Business")]
         [InlineData("End2End", "End2End")]
         [InlineData("business2Business", "Business2Business")]
+        [InlineData("e02", "E02")]
         public void NamesAnyCasingConvertCorrectlyToPascalCase(string sourceName, string expected)
         {
             Assert.Equal(expected, sourceName.ToPascalCase());

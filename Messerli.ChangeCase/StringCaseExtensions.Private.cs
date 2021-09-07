@@ -34,9 +34,28 @@ namespace Messerli.ChangeCase
                 : ExtractByCasing(identifier, startIndex);
 
         private static Option<SplitResult> ExtractByCasing(string identifier, int startIndex)
-            => NextIsAbbreviation(identifier, startIndex)
-                ? ExtractAbbreviation(identifier, startIndex)
-                : ExtractNextWord(identifier, startIndex);
+            => identifier switch
+            {
+                _ when NextIsAbbreviation(identifier, startIndex) => ExtractUntil(identifier, startIndex, c => char.IsLower(c.Value)),
+                _ when NextIsNumber(identifier, startIndex) => ExtractUntil(identifier, startIndex, c => !char.IsDigit(c.Value)),
+                _ => ExtractNextWord(identifier, startIndex),
+            };
+
+        private static Option<SplitResult> ExtractUntil(string identifier, int startIndex, Func<ValueWithIndex<char>, bool> isEndPredicate)
+            => identifier
+                .WithIndex()
+                .Skip(startIndex)
+                .FirstOrNone(isEndPredicate)
+                .AndThen(GetIndex)
+                .Match(
+                    none: ExtractLastElement(identifier, startIndex),
+                    some: index => ExtractNextElement(identifier, startIndex, EmptySeparatorLength)(index - 1));
+
+        private static bool NextIsNumber(string identifier, int startIndex)
+            => identifier
+                .Skip(startIndex)
+                .TakeWhile(char.IsDigit)
+                .Count() > 1;
 
         private static SplitResult ExtractNextWord(string identifier, int startIndex)
             => identifier
@@ -50,16 +69,6 @@ namespace Messerli.ChangeCase
 
         private static bool IsSeparatorCase(ValueWithIndex<char> c)
             => char.IsUpper(c.Value) || char.IsDigit(c.Value);
-
-        private static Option<SplitResult> ExtractAbbreviation(string identifier, int startIndex)
-            => identifier
-                .WithIndex()
-                .Skip(startIndex)
-                .FirstOrNone(c => char.IsLower(c.Value))
-                .AndThen(GetIndex)
-                .Match(
-                    none: ExtractLastElement(identifier, startIndex),
-                    some: index => ExtractNextElement(identifier, startIndex, EmptySeparatorLength)(index - 1));
 
         private static bool NextIsAbbreviation(string identifier, int startIndex)
             => identifier
