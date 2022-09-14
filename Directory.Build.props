@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
+    <PropertyGroup Label="Common Settings">
+        <LangVersion>10.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
     <PropertyGroup Label="Shared NuGet Metadata">
         <Authors>Messerli Informatik AG</Authors>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>

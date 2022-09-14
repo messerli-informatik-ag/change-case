@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Funcky;
+﻿using Funcky;
 using Funcky.Extensions;
 using Funcky.Monads;
 
@@ -30,7 +27,7 @@ namespace Messerli.ChangeCase
 
         private static Option<SplitResult> SplitOnCasing(string identifier, int startIndex)
             => startIndex >= identifier.Length
-                ? Option<SplitResult>.None()
+                ? Option<SplitResult>.None
                 : ExtractByCasing(identifier, startIndex);
 
         private static Option<SplitResult> ExtractByCasing(string identifier, int startIndex)
@@ -78,7 +75,7 @@ namespace Messerli.ChangeCase
 
         private static Option<SplitResult> SplitOnSeparators(string identifier, int startIndex)
             => startIndex > identifier.Length
-                ? Option<SplitResult>.None()
+                ? Option<SplitResult>.None
                 : ExtractBySeparator(identifier, startIndex);
 
         private static SplitResult ExtractBySeparator(string identifier, int startIndex)
@@ -105,7 +102,7 @@ namespace Messerli.ChangeCase
 
         private static IEnumerable<string> SplitBy(this string text, ExtractElement extractNext)
             => Sequence
-                .Generate(new SplitResult(0, string.Empty), previous => extractNext(text, previous.NextStartIndex))
+                .Successors(extractNext(text, 0), previous => extractNext(text, previous.NextStartIndex))
                 .Select(r => r.Result);
 
         private static int GetIndex(ValueWithIndex<char> value)

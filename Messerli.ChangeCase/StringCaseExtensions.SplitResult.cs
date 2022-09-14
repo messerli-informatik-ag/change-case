@@ -1,6 +1,4 @@
-﻿using Funcky.Monads;
-
-namespace Messerli.ChangeCase
+﻿namespace Messerli.ChangeCase
 {
     public static partial class StringCaseExtensions
     {
