@@ -9,6 +9,7 @@
     </PropertyGroup>
     <PropertyGroup Label="Shared NuGet Metadata">
         <Authors>Messerli Informatik AG</Authors>
+        <Copyright>© Messerli Informatik AG. All rights reserved.</Copyright>
         <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/messerli-informatik-ag/change-case</PackageProjectUrl>
         <RepositoryUrl>https://github.com/messerli-informatik-ag/change-case</RepositoryUrl>
