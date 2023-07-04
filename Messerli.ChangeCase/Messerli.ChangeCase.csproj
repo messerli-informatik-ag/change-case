@@ -5,7 +5,7 @@
         <IsPackable>true</IsPackable>
         <Description>Transform a string between different casings.</Description>
         <PackageTags>Utility Casing</PackageTags>
-        <Version>1.2.0</Version>
+        <Version>1.2.1</Version>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
